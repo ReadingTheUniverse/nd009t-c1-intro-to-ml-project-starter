@@ -1,0 +1,57 @@
+# Report: Predict Bike Sharing Demand with AutoGluon Solution
+#### Luis Martinez
+
+## Initial Training
+### What did you realize when you tried to submit your predictions? What changes were needed to the output of the predictor to submit your results?
+
+
+I had no problems submitting my predictions.  The project warned that negative values would be rejected by Kaggle, however, the model generated no negative valued predictions.  Interestingly, the first export contained all the required columns for the predictor and not the later exports (i.e. models 2 and 3).  Kaggle requires the datetime column to be included with the count predictions.  This makes sense since we are predicting how many bikes will be rented and at what times.  I had to update the code for the latter two iterations to include the datetime column.
+
+### What was the top ranked model that performed?
+
+
+The top ranked model was the one that utilized hyperparameter tuning AFTER the training data was wrangled to include more training features.  Additionally, the appropriate features were properly labeled as categorical vice numerical.
+
+## Exploratory data analysis and feature creation
+### What did the exploratory analysis find and how did you add additional features?
+
+Exploratory data analysis showed that one column (i.e. datetime) contained information in a way that hindered the model's ability to generalize the data.  Specifically, the model took the data in the column as a whole and did not decipher it as datetime data.  Further, the season and weather are updated to reflect that they are categorical vice numerical features.
+
+### How much better did your model preform after adding additional features and why do you think that is?
+
+The model performed significantly better. The purpose of this model is to predict the demand for bicycles, throughout the day.  Adding the additional features provided the model with greater fidelity on bicycle rentals by year, month, day, and hour.  Previously all the aformentioned information was grouped as a single feature.  
+
+## Hyper parameter tuning
+### How much better did your model preform after trying different hyper parameters?
+
+
+Interestingly, the model performed worse.  However, the Kaggle score improved.  This may be due to the dissonence between a finely tuned model and it's performance in an applied setting.  The model whose hyperparameter was tuned, XGBoost, better generalized the data than the previous model.
+
+### If you were given more time with this dataset, where do you think you would spend more time?
+
+I would spend the most time with tuning hyperparameters.  I would achieve that by using either GridSearch or RandomSearch to find the best parameters to tune.  Further, I would look at the best models from AutoGluon and focus on the top three.  
+
+### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
+
+|model|hpo1|score|
+|--|--|
+|initial|0|1.80|
+|add_features|0|0.66992|
+|hpo|XGBoost: max_depth|0.45952|
+
+### Create a line plot showing the top model score for the three (or more) training runs during the project.
+
+TODO: Updated.
+
+![model_train_score.png](img/model_train_score.png)
+
+### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
+
+TODO: Updated.
+
+![model_test_score.png](img/model_test_score.png)
+
+## Summary
+TODO: 
+
+AutoML expedites and faciliates efficiently working through the machine learning workflow.  However, AutoML does not work miracles.  The machine learning engineer still needs to take care to perform exploratory data analysis and feature engineering, as needed.  Failing to do so could result in a poor performing model.
