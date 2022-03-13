@@ -43,13 +43,13 @@ I would spend the most time with tuning hyperparameters.  I would achieve that b
 
 TODO: Updated.
 
-![model_train_score.png](img/model_train_score.png)
+![model_train_score.png](https://github.com/ReadingTheUniverse/nd009t-c1-intro-to-ml-project-starter/blob/master/model_train_score.png)
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
 TODO: Updated.
 
-![model_test_score.png](img/model_test_score.png)
+![model_test_score.png](https://github.com/ReadingTheUniverse/nd009t-c1-intro-to-ml-project-starter/blob/master/model_test_score.png)
 
 ## Summary
 TODO: 
